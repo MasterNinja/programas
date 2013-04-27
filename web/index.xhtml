@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <ui:composition template="./plantilla.xhtml">
+        <ui:define name="left">
+            <h:form>            
+                <h:commandButton action="alta" value="Insertar Pasajero"/>
+                <br/>
+                <h:commandButton action="index1" value="Volver"/>
+            </h:form>
+        </ui:define>
+        <ui:define name="content">
+            <h:form>
+                <h:dataTable value="#{pasajeroBean.pasajeros}" var="pasaj" style="border: black solid 2px;">
+                    <h:column>
+                        <f:facet name="header">
+                            DNI
+                        </f:facet> 
+                        #{pasaj.dni}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            Apellido
+                        </f:facet>
+                        #{pasaj.apellido}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header" >
+                            Nombre
+                        </f:facet>
+                        #{pasaj.nombre}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header" >
+                            Direccion
+                        </f:facet>
+                        #{pasaj.direccion}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+
+                        </f:facet>
+                        <h:commandButton action="#{editarBean.editar(pasaj.dni)}" value="Editar"/>
+                        <h:commandButton action="#{pasajeroBean.borrar(pasaj.dni)}" value="Borrar" />
+                    </h:column>
+                </h:dataTable>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
+

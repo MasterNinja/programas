@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 14/11/2012 09:21:04 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="com.lagauchita.modelo.Pasajero" table="pasajero" catalog="transportedb">
+        <id name="dni" type="int">
+            <column name="dni" />
+            <generator class="assigned" />
+        </id>
+        <property name="apellido" type="string">
+            <column name="Apellido" length="45" />
+        </property>
+        <property name="nombre" type="string">
+            <column name="Nombre" length="45" />
+        </property>
+        <property name="direccion" type="string">
+            <column name="direccion" length="45" />
+        </property>
+    </class>
+</hibernate-mapping>

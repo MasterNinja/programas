@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:mdjnm="http://mojarra.dev.java.net/mojarra_ext">
+    <ui:composition template="./plantilla.xhtml">
+        <ui:define name="left">
+            <h:form>
+                <h:commandButton action="index" value="Volver"/>
+            </h:form>
+        </ui:define>
+        <ui:define name="content">
+
+            <h:outputFormat value="Alta de pasajero" style="font-size: large;"/>
+            <h:form>    
+                <mdjnm:focus for="idni"/>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="DNI" for="idni"/>
+                    <h:inputText id="idni" value="#{altaBean.pasajero.dni}"/>
+                    <h:outputLabel value="Apellido" for="iapellido"/>
+                    <h:inputText id="iapellido" value="#{altaBean.pasajero.apellido}"/>
+                    <h:outputLabel value="Nombre" for="inombre"/>
+                    <h:inputText id="inombre" value="#{altaBean.pasajero.nombre}"/>
+                    <h:outputLabel value="Direccion" for="idireccion"/>
+                    <h:inputText id="idireccion" value="#{altaBean.pasajero.direccion}"/>
+                </h:panelGrid>
+                <h:commandButton value="Insertar" action="#{altaBean.guardar}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
+
